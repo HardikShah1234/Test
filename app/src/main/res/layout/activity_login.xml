@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name = "viewmodel"
+            type="com.example.test.ui.auth.AuthenticationViewModel"/>
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/root_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.auth.LoginActivity">
+
+        <LinearLayout
+            android:id="@+id/linearlayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_margin="16dp"
+            android:layout_centerInParent="true"
+            android:orientation="vertical"
+            android:background="#ffffff">
+
+            <EditText
+                android:text="@={viewmodel.BIC}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="BIC"
+                android:inputType="none" />
+            <Button
+                android:onClick="@{viewmodel::validateButtonClick}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="validate"
+                android:layout_marginBottom="12dp"/>
+
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:visibility="invisible"
+            android:gravity = "center"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"/>
+
+    </RelativeLayout>
+
+
+
+</layout>
