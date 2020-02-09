@@ -17,7 +17,6 @@
         tools:context=".ui.auth.LoginActivity">
 
         <LinearLayout
-            android:id="@+id/linearlayout1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -27,29 +26,18 @@
             android:background="#ffffff">
 
             <EditText
-                android:text="@={viewmodel.BIC}"
+                android:text="@={viewmodel.BLZ}"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="BIC"
+                android:hint="BLZ"
                 android:inputType="none" />
-            <EditText
-                android:text="@={viewmodel.IBAN}"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="IBAN"
-                android:inputType="none" />
+
             <Button
-                android:id="@+id/validateBtn"
-                android:onClick="@{viewmodel::validateButtonClick}"
+                android:onClick="@{viewmodel::ShowData}"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="validate"
+                android:text="ShowData"
                 android:layout_marginBottom="12dp"/>
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:onClick="@{viewmodel::onNextActivity}"
-                android:text="Click for new Activity"/>
 
         </LinearLayout>
 

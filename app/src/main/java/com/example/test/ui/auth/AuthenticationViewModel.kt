@@ -1,15 +1,32 @@
 package com.example.test.ui.auth
 
+import android.content.Intent
 import android.util.Log
 import android.view.View
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
+import androidx.lifecycle.R
 import androidx.lifecycle.ViewModel
+import com.example.test.data.repositories.SearchData
 import com.example.test.data.repositories.UserRepository
 import com.example.test.data.repositories.ValidIBAN
+import com.example.test.data.repositories.ValidPost
+import com.example.test.ui.home.SearchActivity
+import com.example.test.ui.home.SearchBLZActivity
 
 class AuthenticationViewModel: ViewModel() {
 
     var BIC: String? = null
     var IBAN: String? = null
+    var CountryCode: String? = null
+    var PostCode : String? = null
+
+    var BLZ: String? = null
+    var Location:String? = null
+    var Page:String? = null
+    var ResPage:String? = null
+    var BankName: String? = null
+
 
     var authListner:AuthListner? = null
 
@@ -17,7 +34,7 @@ class AuthenticationViewModel: ViewModel() {
         authListner?.onStarted()
         if(BIC.isNullOrEmpty() && IBAN.isNullOrEmpty()){
             authListner?.onFailure("Invalid BIC or IBAN")
-
+            return
         } else if (BIC!!.isNotEmpty() && IBAN.isNullOrEmpty()){
             val loginResponse = UserRepository().validationBic(BIC!!)
             authListner?.onSccess(loginResponse)
@@ -26,9 +43,43 @@ class AuthenticationViewModel: ViewModel() {
             val loginResponse = ValidIBAN().valiateIban(IBAN!!)
             authListner?.onSccess(loginResponse)
         }
-        return
 
+    }
 
+    fun onNextActivity(view: View){
+        Intent(view.context,SearchActivity::class.java).also {
+            view.context.startActivity(it)
+        }
 
+    }
+
+    fun ShowResponse(view: View){
+
+        authListner?.onStarted()
+        if (PostCode.isNullOrEmpty() && CountryCode.isNullOrEmpty()){
+            authListner?.onFailure("Please Enter Code")
+            return
+        } else if(PostCode!!.isNotEmpty() && CountryCode!!.isNotEmpty()){
+            val loginResponse = ValidPost().validatePostCode(PostCode!!,CountryCode!!)
+            authListner?.onSccess(loginResponse)
+        }
+
+    }
+
+    fun NewActivity(view: View){
+        Intent(view.context,SearchBLZActivity::class.java).also {
+            view.context.startActivity(it)
+        }
+    }
+
+    fun ShowData(view: View){
+        authListner?.onStarted()
+        if (BLZ.isNullOrEmpty()){
+            authListner?.onFailure("Enter Valid BLZ")
+            return
+        }else{
+            val loginResponse = SearchData().validateSearchData(BLZ!!,CountryCode!!,Location!!,BankName!!,Page!!,ResPage!!)
+            authListner?.onSccess(loginResponse)
+        }
     }
 }

@@ -1,32 +1,33 @@
-package com.example.test.ui.auth
+package com.example.test.ui.home
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.widget.Button
+import android.widget.TableLayout
+import android.widget.TableRow
+import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.test.R
 import com.example.test.databinding.ActivityLoginBinding
+import com.example.test.databinding.ActivitySearchBinding
+import com.example.test.ui.auth.AuthListner
+import com.example.test.ui.auth.AuthenticationViewModel
 import com.example.test.util.hide
 import com.example.test.util.show
 import com.example.test.util.toast
 import kotlinx.android.synthetic.main.activity_login.*
 
-class LoginActivity : AppCompatActivity(), AuthListner {
+class SearchActivity : AppCompatActivity(), AuthListner {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val binding : ActivityLoginBinding = DataBindingUtil.setContentView(this,R.layout.activity_login)
+        val binding : ActivitySearchBinding = DataBindingUtil.setContentView(this,R.layout.activity_search)
         val viewModel = ViewModelProviders.of(this).get(AuthenticationViewModel::class.java)
         binding.viewmodel = viewModel
         viewModel.authListner = this
-
-
     }
 
     override fun onStarted() {
@@ -47,4 +48,6 @@ class LoginActivity : AppCompatActivity(), AuthListner {
         toast(message)
 
     }
+
+
 }

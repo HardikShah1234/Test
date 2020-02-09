@@ -27,6 +27,14 @@ interface MyAPI {
     @GET("validateIban")
     fun getIban(@Query("iban") IBAN:String):Call<ResponseBody>
 
+    @GET("validatePostCode")
+    fun getPostCode(@Query("postCode") PostCode:String,@Query("countryCode") CountryCode:String):Call<ResponseBody>
+
+    @GET("searchBic")
+    fun getData(@Query("blz") BLZ:String,@Query("countryCode") CountryCode: String,
+                @Query("location") Location:String, @Query("bankname") BankName:String,
+                @Query("page") Page:String,@Query("resOnPage") ResPage:String):Call<ResponseBody>
+
 
 
     companion object{
