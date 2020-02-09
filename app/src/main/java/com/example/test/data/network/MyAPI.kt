@@ -24,6 +24,9 @@ interface MyAPI {
     @GET("validateBic")
     fun getValidation(@Query("bic") BIC:String ): Call<ResponseBody>
 
+    @GET("validateIban")
+    fun getIban(@Query("iban") IBAN:String):Call<ResponseBody>
+
 
 
     companion object{
