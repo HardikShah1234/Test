@@ -22,7 +22,6 @@ class LoginActivity : AppCompatActivity(), AuthListner {
         val binding : ActivityLoginBinding = DataBindingUtil.setContentView(this,R.layout.activity_login)
         val viewModel = ViewModelProviders.of(this).get(AuthenticationViewModel::class.java)
         binding.viewmodel = viewModel
-
         viewModel.authListner = this
     }
 
@@ -39,7 +38,7 @@ class LoginActivity : AppCompatActivity(), AuthListner {
 
     }
 
-    override fun onFalure(message: String) {
+    override fun onFailure(message: String) {
         progress_bar.hide()
         toast(message)
 

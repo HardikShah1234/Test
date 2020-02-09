@@ -6,7 +6,7 @@ interface AuthListner {
 
     fun onStarted()
     fun onSccess(loginResponse: LiveData<String>)
-    fun onFalure(message: String)
+    fun onFailure(message: String)
 
 
 }

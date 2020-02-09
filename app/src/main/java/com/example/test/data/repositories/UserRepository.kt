@@ -14,8 +14,10 @@ class UserRepository {
 
         val loginResponse = MutableLiveData<String>()
 
+        val call = MyAPI().getValidation(BIC)
 
-       MyAPI().validationBic(BIC)
+
+       call
            .enqueue(object : Callback<ResponseBody>{
                override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
                    loginResponse.value = t.message
@@ -35,4 +37,5 @@ class UserRepository {
 
         return loginResponse
     }
+
 }
