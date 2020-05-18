@@ -1,19 +1,16 @@
-package com.example.test.ui.auth
+package com.hardik.test.ui.auth
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.widget.Button
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import com.example.test.R
-import com.example.test.databinding.ActivityLoginBinding
-import com.example.test.util.hide
-import com.example.test.util.show
-import com.example.test.util.toast
+import com.hardik.test.R
+import com.hardik.test.databinding.ActivityLoginBinding
+import com.hardik.test.util.hide
+import com.hardik.test.util.show
+import com.hardik.test.util.toast
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity(), AuthListner {

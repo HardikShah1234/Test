@@ -1,21 +1,20 @@
-package com.example.test.data.repositories
+package com.hardik.test.data.repositories
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.example.test.data.network.MyAPI
+import com.hardik.test.data.network.MyAPI
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class SearchData {
+class ValidPost {
 
-    fun validateSearchData (BLZ:String,CountryCode: String,Location:String,
-                            BankName:String,Page:String,ResPage:String) : LiveData<String> {
+    fun validatePostCode (PostCode : String,CountryCode: String ) : LiveData<String>{
 
         val loginResponse = MutableLiveData<String>()
 
-        val call = MyAPI().getData(BLZ, CountryCode, Location, BankName, Page, ResPage)
+        val call = MyAPI().getPostCode(PostCode,CountryCode)
 
         call
             .enqueue(object : Callback<ResponseBody> {

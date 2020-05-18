@@ -1,4 +1,4 @@
-package com.example.test.ui.home
+package com.hardik.test.ui.home
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,20 +6,22 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import com.example.test.R
-import com.example.test.databinding.ActivitySearchBlzBinding
-import com.example.test.ui.auth.AuthListner
-import com.example.test.ui.auth.AuthenticationViewModel
-import com.example.test.util.hide
-import com.example.test.util.show
-import com.example.test.util.toast
+import com.hardik.test.R
+import com.hardik.test.databinding.ActivityLoginBinding
+import com.hardik.test.databinding.ActivitySearchBinding
+import com.hardik.test.ui.auth.AuthListner
+import com.hardik.test.ui.auth.AuthenticationViewModel
+import com.hardik.test.util.hide
+import com.hardik.test.util.show
+import com.hardik.test.util.toast
 import kotlinx.android.synthetic.main.activity_login.*
 
-class SearchBLZActivity : AppCompatActivity(), AuthListner {
+class SearchActivity : AppCompatActivity(), AuthListner {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding : ActivitySearchBlzBinding = DataBindingUtil.setContentView(this,R.layout.activity_search_blz)
+
+        val binding : ActivitySearchBinding = DataBindingUtil.setContentView(this,R.layout.activity_search)
         val viewModel = ViewModelProviders.of(this).get(AuthenticationViewModel::class.java)
         binding.viewmodel = viewModel
         viewModel.authListner = this
@@ -43,5 +45,6 @@ class SearchBLZActivity : AppCompatActivity(), AuthListner {
         toast(message)
 
     }
-}
 
+
+}

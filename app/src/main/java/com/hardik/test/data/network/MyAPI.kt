@@ -1,15 +1,12 @@
-package com.example.test.data.network
+package com.hardik.test.data.network
 
-import com.example.test.ui.auth.BasicAuthInterceptor
+import com.hardik.test.ui.auth.BasicAuthInterceptor
 import com.google.gson.GsonBuilder
-import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.ResponseBody
 import retrofit2.Call
-import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
 import retrofit2.http.*
 
 interface MyAPI {

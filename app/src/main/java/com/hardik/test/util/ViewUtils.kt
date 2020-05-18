@@ -1,4 +1,4 @@
-package com.example.test.util
+package com.hardik.test.util
 
 import android.content.Context
 import android.view.View

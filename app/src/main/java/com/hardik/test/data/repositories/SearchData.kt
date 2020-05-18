@@ -1,21 +1,21 @@
-package com.example.test.data.repositories
+package com.hardik.test.data.repositories
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.example.test.data.network.MyAPI
+import com.hardik.test.data.network.MyAPI
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class ValidIBAN {
+class SearchData {
 
-    fun valiateIban (IBAN : String): LiveData<String>{
+    fun validateSearchData (BLZ:String,CountryCode: String,Location:String,
+                            BankName:String,Page:String,ResPage:String) : LiveData<String> {
 
         val loginResponse = MutableLiveData<String>()
 
-        val call = MyAPI().getIban(IBAN)
-
+        val call = MyAPI().getData(BLZ, CountryCode, Location, BankName, Page, ResPage)
 
         call
             .enqueue(object : Callback<ResponseBody> {
@@ -36,6 +36,5 @@ class ValidIBAN {
             })
 
         return loginResponse
-
     }
 }

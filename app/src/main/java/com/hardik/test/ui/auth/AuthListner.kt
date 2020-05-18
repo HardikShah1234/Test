@@ -1,4 +1,4 @@
-package com.example.test.ui.auth
+package com.hardik.test.ui.auth
 
 import androidx.lifecycle.LiveData
 

@@ -1,20 +1,21 @@
-package com.example.test.data.repositories
+package com.hardik.test.data.repositories
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.example.test.data.network.MyAPI
+import com.hardik.test.data.network.MyAPI
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class ValidPost {
+class ValidIBAN {
 
-    fun validatePostCode (PostCode : String,CountryCode: String ) : LiveData<String>{
+    fun valiateIban (IBAN : String): LiveData<String>{
 
         val loginResponse = MutableLiveData<String>()
 
-        val call = MyAPI().getPostCode(PostCode,CountryCode)
+        val call = MyAPI().getIban(IBAN)
+
 
         call
             .enqueue(object : Callback<ResponseBody> {
@@ -35,5 +36,6 @@ class ValidPost {
             })
 
         return loginResponse
+
     }
 }

@@ -1,8 +1,8 @@
-package com.example.test.data.repositories
+package com.hardik.test.data.repositories
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.example.test.data.network.MyAPI
+import com.hardik.test.data.network.MyAPI
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
